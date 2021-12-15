@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="colorPrimary">@color/matrimonyScreenTextColor</color>
+    <color name="colorPrimaryDark">#0E2E43</color>
+    <color name="colorAccent">@color/matrimonyScreenTextColor</color>
+
+    <color name="matrimonyScreenTextColor">#133D59</color>
+    <color name="matrimonyDatingText">#42647A</color>
+
+
+    <color name="light_grey_transparent">#82707070</color>
+    <color name="ad_back">#484D56</color>
+    <color name="grey11">#CC8D8D8D</color>
+    <color name="back11">#33A3A3A3</color>
+
+
+    <color name="textColor_onbroad">#133d59</color>
+
+    <color name="red_dark">#CC1515</color>
+
+    <color name="subs_dating">#FFAFEF</color>
+    <color name="subs_matrimony">#FF5151</color>
+    <color name="subs_individual">#DCFF51</color>
+    <color name="subs_classifieds">#51A2FF</color>
+    <color name="subs_jobs">#51FF84</color>
+
+    <color name="subs_cards">#51A2FF</color>
+    <color name="subs_merchants">#51A2FF</color>
+    <color name="subs_professionals">#51A2FF</color>
+
+    <!--    Gallery theme-->
+    <color name="netclan_blue">#133D59</color>
+    <color name="blue_secondary">#718B9B</color>
+    <color name="blue_disabled">#42647A</color>
+    <color name="grey12">#CCCCCC</color>
+
+    <!-- Contacts Filter color -->
+    <color name="filterIconColor">#A1B1BD</color>
+    <color name="UserIntroProfile_background">#0E2E43</color>
+
+    <color name="emptyTextColor">#FBAE17</color>
+
+    <color name="color_blink">#FF5E5E</color>
+    <color name="color_gray">#D6D6D6</color>
+    <color name="color_blue">#007AFF</color>
+    <color name="text_gray">#bbbbbb</color>
+    <color name="line_sep">#D0D8DE</color>
+    <color name="tab_text">#B3B3B3</color>
+
+    <color name="alphabet_text_selected_color">@color/colorPrimary</color>
+
+    <color name="has_tag_audio_background">#F6F7F8</color>
+
+    <color name="buy_sell_text_color">#0D1C3D</color>
+
+</resources>

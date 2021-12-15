@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_onboard"
+    app:startDestination="@id/welcomeFragment">
+
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.example.netclankotlin.onboarding.WelcomeFragment"
+        android:label="WelcomeFragment" >
+
+        <action android:id="@+id/welcomeFragment_to_onBoard"
+            app:destination="@id/onBoardFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/onBoardFragment"
+        android:name="com.example.netclankotlin.onboarding.FirstOnboardFragment"
+        android:label="Onboard" >
+
+
+
+    </fragment>
+</navigation>
+
