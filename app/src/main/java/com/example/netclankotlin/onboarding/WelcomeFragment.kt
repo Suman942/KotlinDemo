@@ -29,9 +29,9 @@ class WelcomeFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_welcome, container, false)
         initialiseView()
         networkCalls()
-//        binding.startedBtn.setOnClickListener {
-//            startActivity(Intent(context,SecondActivity::class.java))
-//        }
+        binding.startedBtn.setOnClickListener {
+            startActivity(Intent(context,SecondActivity::class.java))
+        }
         return binding.root
     }
 
