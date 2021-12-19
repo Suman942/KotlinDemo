@@ -3,13 +3,12 @@ package com.example.netclankotlin.otp
 import android.content.Context
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.example.netclankotlin.explore.ExploreResponse
+import com.example.netclankotlin.exploreResponse.ExploreResponse
 import com.example.netclankotlin.network.ApiClient
 import com.example.netclankotlin.network.ApiInterface
 import com.google.gson.JsonObject
 import retrofit2.Call
 import retrofit2.Response
-import javax.security.auth.callback.Callback
 
 class VerifyOtpRepo {
     var context: Context? = null

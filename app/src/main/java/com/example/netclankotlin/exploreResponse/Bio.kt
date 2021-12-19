@@ -1,4 +1,4 @@
-package com.example.netclankotlin.explore
+package com.example.netclankotlin.exploreResponse
 
 data class Bio(
     val `data`: String,

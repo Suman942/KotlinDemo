@@ -5,13 +5,10 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.netclankotlin.R
-import com.example.netclankotlin.explore.Data
 import com.example.netclankotlin.explore.activities.ThirdActivity
 import com.example.netclankotlin.room.Note
 import com.example.netclankotlin.utils.GlideHelper

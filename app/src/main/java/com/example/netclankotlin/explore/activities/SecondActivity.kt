@@ -8,7 +8,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.netclankotlin.R
 import com.example.netclankotlin.databinding.ActivitySecondBinding
-import com.example.netclankotlin.explore.Data
 import com.example.netclankotlin.explore.adapters.ExploreAdapter
 import com.example.netclankotlin.otp.VerifyOtpViewModel
 import android.util.Log

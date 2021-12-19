@@ -1,4 +1,4 @@
-package com.example.netclankotlin.explore
+package com.example.netclankotlin.exploreResponse
 
 data class Location(
     val coordinates: List<Double>

@@ -1,6 +1,6 @@
 package com.example.netclankotlin.network
 
-import com.example.netclankotlin.explore.ExploreResponse
+import com.example.netclankotlin.exploreResponse.ExploreResponse
 import com.example.netclankotlin.otp.GetOtpResponse
 import com.example.netclankotlin.otp.VerifyOtpResponse
 import com.google.gson.JsonObject
