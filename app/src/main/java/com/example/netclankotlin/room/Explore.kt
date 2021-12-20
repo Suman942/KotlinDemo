@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 import org.jetbrains.annotations.NotNull
 
 @Entity(tableName = "explore_table")
-data class Note(
+data class Explore(
     @ColumnInfo(name = "Fname")
     val Fname: String,
     @ColumnInfo(name = "Lname")

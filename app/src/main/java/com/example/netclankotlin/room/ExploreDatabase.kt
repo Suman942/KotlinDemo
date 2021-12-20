@@ -4,23 +4,21 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import androidx.sqlite.db.SupportSQLiteDatabase
 
-@Database(entities = [Note::class], version = 1)
-abstract class NoteDatabase : RoomDatabase() {
+@Database(entities = [Explore::class], version = 1)
+abstract class ExploreDatabase : RoomDatabase() {
 
     abstract fun exploreDao(): ExploreDao
 
     companion object {
-        private var instance: NoteDatabase? = null
+        private var instance: ExploreDatabase? = null
 
         @Synchronized
-        fun getInstance(ctx: Context): NoteDatabase {
+        fun getInstance(ctx: Context): ExploreDatabase {
             if(instance == null)
-                instance = Room.databaseBuilder(ctx.applicationContext, NoteDatabase::class.java,
+                instance = Room.databaseBuilder(ctx.applicationContext, ExploreDatabase::class.java,
                     "explore_database")
                     .fallbackToDestructiveMigration()
-                    .allowMainThreadQueries()
                     .build()
 
             return instance!!

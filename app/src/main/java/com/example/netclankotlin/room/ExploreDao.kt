@@ -7,7 +7,7 @@ import androidx.room.*
 interface ExploreDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(note: Note)
+    fun insert(explore: Explore)
 
 //    @Update
 //    fun update(note: Note)
@@ -19,5 +19,5 @@ interface ExploreDao {
 //    fun deleteAllNotes()
 
     @Query("select * from explore_table")
-    fun getAllNotes(): LiveData<List<Note>>
+    fun getAllExploreData(): LiveData<List<Explore>>
 }

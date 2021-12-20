@@ -10,12 +10,14 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.netclankotlin.R
 import com.example.netclankotlin.explore.activities.ThirdActivity
-import com.example.netclankotlin.room.Note
+import com.example.netclankotlin.exploreResponse.Data
+import com.example.netclankotlin.exploreResponse.ExploreResponse
+import com.example.netclankotlin.room.Explore
 import com.example.netclankotlin.utils.GlideHelper
 
 class ExploreAdapter(
     val context: Context,
-    val exploreList: ArrayList<Note>,
+    val exploreList: ArrayList<Data>,
     val listener: Callback
 ) : RecyclerView.Adapter<ExploreAdapter.ExploreViewHolder>() {
 
@@ -28,12 +30,12 @@ class ExploreAdapter(
 
     override fun onBindViewHolder(holder: ExploreViewHolder, position: Int) {
         holder.textName.text =
-            exploreList.get(position).Fname + " " + exploreList.get(position).Lname
+            exploreList.get(position).firstName + " " + exploreList.get(position).lastName
         GlideHelper.setImageViewRoundedCorners(
             context,
             holder.profileImg,
             20,
-            exploreList.get(position).profileIMG
+            exploreList.get(position).profilePicUrl
         )
     }
 
