@@ -10,7 +10,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 open class VerifyOtpViewModel : ViewModel() {
-    private val verifyOtpRepo = VerifyOtpRepo()
+//    private val verifyOtpRepo = VerifyOtpRepo
     private val verifyOtpmutableLiveData = MutableLiveData<VerifyOtpResponse>()
     private val getOtpMutableLiveData = MutableLiveData<GetOtpResponse>()
     private val exploreMutableLiveData = MutableLiveData<ExploreResponse>()
@@ -25,7 +25,7 @@ open class VerifyOtpViewModel : ViewModel() {
         viewModelScope.launch(Dispatchers.IO){
             try {
                 Log.d("exception","in: "+Thread.currentThread())
-                verifyOtpRepo.getInstance()?.getExplore(page, exploreMutableLiveData)
+                VerifyOtpRepo.getExplore(page, exploreMutableLiveData)
             }
             catch (e: Throwable){
                 Log.d("exception",""+e.message)
@@ -38,7 +38,7 @@ open class VerifyOtpViewModel : ViewModel() {
     }
 
     fun verifyOtpViewModel(jsonObject: JsonObject) {
-        verifyOtpRepo.getInstance()?.verifyOtp(jsonObject, verifyOtpmutableLiveData)
+        VerifyOtpRepo.verifyOtp(jsonObject, verifyOtpmutableLiveData)
     }
 
     val getOtpLiveData: MutableLiveData<GetOtpResponse> by lazy {
@@ -46,6 +46,6 @@ open class VerifyOtpViewModel : ViewModel() {
     }
 
     fun getOtpViewModel(jsonObject: JsonObject) {
-        verifyOtpRepo.getInstance()?.getOtp(jsonObject, getOtpMutableLiveData)
+        VerifyOtpRepo.getOtp(jsonObject, getOtpMutableLiveData)
     }
 }

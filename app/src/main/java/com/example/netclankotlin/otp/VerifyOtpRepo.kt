@@ -10,26 +10,27 @@ import com.google.gson.JsonObject
 import retrofit2.Call
 import retrofit2.Response
 
-class VerifyOtpRepo {
-    var context: Context? = null
+object VerifyOtpRepo {
+//    var context: Context? = null
     private val TAG = "LoginRepository"
     private var userRepository: VerifyOtpRepo? = null
     private var apiInterface: ApiInterface? = null
 
-    fun getInstance(): VerifyOtpRepo? {
-        if (userRepository == null) {
-            userRepository = VerifyOtpRepo()
-        }
-        return userRepository
+    init {
+        apiInterface = ApiClient.client?.create(ApiInterface::class.java)
     }
-//    private fun VerifyOtpRepo(): VerifyOtpRepo? {
-//        apiInterface = ApiClient.client?.create(ApiInterface::class.java)
+//    fun getInstance(): VerifyOtpRepo? {
+//        if (userRepository == null) {
+//            userRepository = VerifyOtpRepo()
+//        }
 //        return userRepository
+//    }
+//    private fun VerifyOtpRepo(): VerifyOtpRepo? {
+////        return userRepository
 //    }
 
 
     fun getOtp(jsonObject: JsonObject, liveData: MutableLiveData<GetOtpResponse>) {
-        apiInterface = ApiClient.client?.create(ApiInterface::class.java)
 
         apiInterface?.getOtp(jsonObject)?.enqueue(object : retrofit2.Callback<GetOtpResponse> {
             override fun onResponse(
@@ -54,7 +55,6 @@ class VerifyOtpRepo {
     }
 
     fun verifyOtp(jsonObject: JsonObject, liveData: MutableLiveData<VerifyOtpResponse>) {
-        apiInterface = ApiClient.client?.create(ApiInterface::class.java)
         apiInterface?.verifyOtp(jsonObject)
             ?.enqueue(object : retrofit2.Callback<VerifyOtpResponse> {
                 override fun onResponse(
@@ -83,7 +83,6 @@ class VerifyOtpRepo {
     }
 
    suspend fun getExplore(page: Int, mutableLiveData: MutableLiveData<ExploreResponse>) {
-        apiInterface = ApiClient.client?.create(ApiInterface::class.java)
      val response=  apiInterface?.getExplore(page)
             if (response?.isSuccessful == true){
                 mutableLiveData.postValue(response.body())
