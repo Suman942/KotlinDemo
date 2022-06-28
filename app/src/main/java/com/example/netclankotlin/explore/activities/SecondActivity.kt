@@ -42,8 +42,21 @@ class SecondActivity : AppCompatActivity(), ExploreAdapter.Callback {
 
         initialise()
         setData()
-        getData()
+//        getData()
+        getDataUsingRx()
         pagination()
+    }
+
+    private fun getDataUsingRx() {
+        viewModel.exploreLiveData.observe(this,Observer<ExploreResponse>{
+            if (it != null){
+                exploreList.addAll(it.data)
+                exploreAdapter.notifyDataSetChanged()
+            }
+            else{
+                Toast.makeText(this,"Error",Toast.LENGTH_LONG)
+            }
+        })
     }
 
     private fun pagination() {
@@ -66,8 +79,10 @@ class SecondActivity : AppCompatActivity(), ExploreAdapter.Callback {
     private fun setData() {
         lifecycleScope.launch(Dispatchers.IO) {
             ExploreDatabase.getInstance(this@SecondActivity).clearAllTables()
-            viewModel.getExploreData(page)
+//            viewModel.getExploreData(page)
         }
+        viewModel.getExploreData(page)
+
     }
 
     private fun getData() {

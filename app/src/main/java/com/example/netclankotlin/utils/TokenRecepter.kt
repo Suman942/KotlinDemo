@@ -1,5 +1,6 @@
 package com.example.netclankotlin.utils
 
+import android.util.Log
 import java.io.IOException
 
 import okhttp3.Interceptor.*
@@ -12,10 +13,11 @@ import okhttp3.Response
 class TokenRecepter : Interceptor {
     @Throws(IOException::class)
     override fun intercept(chain: Chain): Response {
-
+        var token =    App.context?.let { PrefManager.getInstance(it.applicationContext).authKey }
+//        Log.d("Explore","auth: "+ App.context?.let { PrefManager.getInstance(it).authKey } +"\n"+token)
         //rewrite the request to add bearer token
         val newRequest: Request = chain.request().newBuilder()
-            .header("Authorization", "Bearer "+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MDg5NWQ5ODc2ZTIzMjAwMGFkZDMyZTYiLCJ1c2VyVHlwZSI6MCwiaWF0IjoxNjM4ODYyMTA1LCJpc3MiOiJodHRwczovL25ldGNsYW4uY29tIn0.CXZITxc0SvhFWTdK2CTp1w2c4mBI189Glx-Jbcv3kVg")
+            .header("Authorization", "Bearer "+token)
             .build()
         return chain.proceed(newRequest)
     }

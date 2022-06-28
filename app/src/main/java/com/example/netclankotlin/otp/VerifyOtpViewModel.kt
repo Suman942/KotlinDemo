@@ -20,17 +20,17 @@ open class VerifyOtpViewModel : ViewModel() {
     }
 
     fun getExploreData(page: Int) {
-        Log.d("exception","out: "+Thread.currentThread())
+        verifyOtpRepo.getInstance()?.getExplore(page, exploreMutableLiveData)
 
-        viewModelScope.launch(Dispatchers.IO){
-            try {
-                Log.d("exception","in: "+Thread.currentThread())
-                verifyOtpRepo.getInstance()?.getExplore(page, exploreMutableLiveData)
-            }
-            catch (e: Throwable){
-                Log.d("exception",""+e.message)
-            }
-        }
+//        viewModelScope.launch(Dispatchers.IO){
+//            try {
+//                Log.d("exception","in: "+Thread.currentThread())
+//                verifyOtpRepo.getInstance()?.getExplore(page, exploreMutableLiveData)
+//            }
+//            catch (e: Throwable){
+//                Log.d("exception",""+e.message)
+//            }
+//        }
     }
 
     val verifyOtpLiveData: MutableLiveData<VerifyOtpResponse> by lazy {

@@ -15,6 +15,6 @@ data class Explore(
     val profileIMG: String,
     @PrimaryKey
     @NotNull
-    @ColumnInfo(name = "id")
+    @ColumnInfo(name = "_id")
     val id: String
 )

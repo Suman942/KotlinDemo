@@ -7,8 +7,14 @@ import com.example.netclankotlin.exploreResponse.ExploreResponse
 import com.example.netclankotlin.network.ApiClient
 import com.example.netclankotlin.network.ApiInterface
 import com.google.gson.JsonObject
+import io.reactivex.Observer
+import io.reactivex.Scheduler
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.Disposable
+import io.reactivex.schedulers.Schedulers
 import retrofit2.Call
 import retrofit2.Response
+import retrofit2.Retrofit
 
 class VerifyOtpRepo {
     var context: Context? = null
@@ -82,35 +88,38 @@ class VerifyOtpRepo {
             })
     }
 
-   suspend fun getExplore(page: Int, mutableLiveData: MutableLiveData<ExploreResponse>) {
+//    suspend fun getExplore(page: Int, mutableLiveData: MutableLiveData<ExploreResponse>) {
+//        apiInterface = ApiClient.client?.create(ApiInterface::class.java)
+//        val response = apiInterface?.getExplore(page)
+//        if (response?.isSuccessful == true) {
+//            mutableLiveData.postValue(response.body())
+//        }
+//    }
+
+    fun getExplore(page: Int,mutableLiveData: MutableLiveData<ExploreResponse>){
         apiInterface = ApiClient.client?.create(ApiInterface::class.java)
-     val response=  apiInterface?.getExplore(page)
-            if (response?.isSuccessful == true){
-                mutableLiveData.postValue(response.body())
+        apiInterface?.getExplore(page)?.subscribeOn(Schedulers.io())
+            ?.observeOn(AndroidSchedulers.mainThread())?.subscribe(getExploreObserver(mutableLiveData))
+    }
 
-       }
-//        apiInterface?.getExplore(page)?.enqueue(object : retrofit2.Callback<ExploreResponse> {
-//            override fun onResponse(
-//                call: Call<ExploreResponse>,
-//                response: Response<ExploreResponse>
-//            ) {
-//                if (response.code() == 200){
-//                    Log.d("explore", "success")
-//                    mutableLiveData.postValue(response.body())
-//
-//                }
-//
-//                Log.d("explore", "code: "+response.code())
-//
-//
-//            }
-//
-//            override fun onFailure(call: Call<ExploreResponse>, t: Throwable) {
-//                Log.d("explore", "error: " + t.message)
-//
-//            }
-//        })
+    fun getExploreObserver(mutableLiveData: MutableLiveData<ExploreResponse>): Observer<ExploreResponse>{
+        return object : Observer<ExploreResponse>{
+            override fun onSubscribe(d: Disposable) {
+            }
 
+            override fun onNext(t: ExploreResponse) {
+                Log.d("Explore","response success")
+                mutableLiveData.postValue(t)
+            }
 
+            override fun onError(e: Throwable) {
+                Log.d("Explore","response error: "+e.message)
+                mutableLiveData.postValue(null)
+            }
+
+            override fun onComplete() {
+            }
+
+        }
     }
 }
